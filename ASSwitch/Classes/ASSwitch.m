@@ -185,7 +185,7 @@
         [self changeStateNoAnimation];
     }
     
-    self.onState = on;
+    _onState = on;
     
 }
 
