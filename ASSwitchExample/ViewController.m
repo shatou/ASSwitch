@@ -20,7 +20,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    ASSwitch *aSwitch = [[ASSwitch alloc] initWithFrame:CGRectMake(110,
+    ASSwitch *aSwitch = [[ASSwitch alloc] initWithFrame:CGRectMake(115,
                                                                    140,
                                                                    0,
                                                                    0)];
