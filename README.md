@@ -9,7 +9,7 @@
 ####- Initialization
 You simply create the switch as following:
 
-  ASSwitch *aSwitch = [[ASSwitch alloc] initWithFrame:CGRectMake(115, 140, 0, 0)];
+	ASSwitch *aSwitch = [[ASSwitch alloc] initWithFrame:CGRectMake(115, 140, 0, 0)];
 
 You don't need to specify a width or height for the switch, it will adopt itself to the switch frame image (even if you didn't provide one).
 
