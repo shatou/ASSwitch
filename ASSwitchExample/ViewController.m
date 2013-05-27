@@ -2,11 +2,12 @@
 //  ViewController.m
 //  ASSwitchExample
 //
-//  Created by عبدالرحمن شاتو on 5/27/13.
+//  Created by عبدالرحمن شاتو on 5/26/13.
 //  Copyright (c) 2013 Shatou. All rights reserved.
 //
 
 #import "ViewController.h"
+#import "ASSwitch.h"
 
 @interface ViewController ()
 
@@ -14,16 +15,38 @@
 
 @implementation ViewController
 
+#pragma mark - Lifecycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    ASSwitch *aSwitch = [[ASSwitch alloc] initWithFrame:CGRectMake(110,
+                                                                   140,
+                                                                   0,
+                                                                   0)];
+    
+    [aSwitch setOnLabelText:@":-)" offLabelText:@":-("];
+    [aSwitch setOn:YES animated:NO];
+    
+    [aSwitch addTarget:self
+                action:@selector(switchChangedValue:)
+      forControlEvents:UIControlEventValueChanged];
+    
+    [self.view addSubview:aSwitch];
+    
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewDidUnload {
+    [self setSwitchStatusLabel:nil];
+    [super viewDidUnload];
+}
+
+#pragma mark - Switch Action
+
+- (void) switchChangedValue:(ASSwitch *) aSwitch {
+    
+    self.switchStatusLabel.text = aSwitch.onState ? @"Switch is On!":@"Switch is Off!!";
+    
 }
 
 @end

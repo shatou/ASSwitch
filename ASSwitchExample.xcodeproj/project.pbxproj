@@ -18,6 +18,13 @@
 		B34B69FF17533FC200F9D040 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B34B69FE17533FC200F9D040 /* Default-568h@2x.png */; };
 		B34B6A0217533FC200F9D040 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B34B6A0117533FC200F9D040 /* ViewController.m */; };
 		B34B6A0517533FC200F9D040 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34B6A0317533FC200F9D040 /* ViewController.xib */; };
+		B34B6A1117533FF400F9D040 /* ASSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = B34B6A0F17533FF400F9D040 /* ASSwitch.m */; };
+		B34B6A1817533FFC00F9D040 /* ASSwitchFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = B34B6A1217533FFC00F9D040 /* ASSwitchFrame.png */; };
+		B34B6A1917533FFC00F9D040 /* ASSwitchFrame@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B34B6A1317533FFC00F9D040 /* ASSwitchFrame@2x.png */; };
+		B34B6A1A17533FFC00F9D040 /* ASSwitchToggle.png in Resources */ = {isa = PBXBuildFile; fileRef = B34B6A1417533FFC00F9D040 /* ASSwitchToggle.png */; };
+		B34B6A1B17533FFC00F9D040 /* ASSwitchToggle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B34B6A1517533FFC00F9D040 /* ASSwitchToggle@2x.png */; };
+		B34B6A1C17533FFC00F9D040 /* ASSwitchToggleSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = B34B6A1617533FFC00F9D040 /* ASSwitchToggleSelected.png */; };
+		B34B6A1D17533FFC00F9D040 /* ASSwitchToggleSelected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B34B6A1717533FFC00F9D040 /* ASSwitchToggleSelected@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +44,15 @@
 		B34B6A0017533FC200F9D040 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		B34B6A0117533FC200F9D040 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		B34B6A0417533FC200F9D040 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		B34B6A0E17533FF400F9D040 /* ASSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSwitch.h; sourceTree = "<group>"; };
+		B34B6A0F17533FF400F9D040 /* ASSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSwitch.m; sourceTree = "<group>"; };
+		B34B6A1017533FF400F9D040 /* ASSwitchDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSwitchDefinitions.h; sourceTree = "<group>"; };
+		B34B6A1217533FFC00F9D040 /* ASSwitchFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ASSwitchFrame.png; sourceTree = "<group>"; };
+		B34B6A1317533FFC00F9D040 /* ASSwitchFrame@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ASSwitchFrame@2x.png"; sourceTree = "<group>"; };
+		B34B6A1417533FFC00F9D040 /* ASSwitchToggle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ASSwitchToggle.png; sourceTree = "<group>"; };
+		B34B6A1517533FFC00F9D040 /* ASSwitchToggle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ASSwitchToggle@2x.png"; sourceTree = "<group>"; };
+		B34B6A1617533FFC00F9D040 /* ASSwitchToggleSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ASSwitchToggleSelected.png; sourceTree = "<group>"; };
+		B34B6A1717533FFC00F9D040 /* ASSwitchToggleSelected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ASSwitchToggleSelected@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +72,7 @@
 		B34B69DC17533FC100F9D040 = {
 			isa = PBXGroup;
 			children = (
+				B34B6A0B17533FD100F9D040 /* ASSwitch */,
 				B34B69EE17533FC100F9D040 /* ASSwitchExample */,
 				B34B69E717533FC100F9D040 /* Frameworks */,
 				B34B69E617533FC100F9D040 /* Products */,
@@ -105,6 +122,38 @@
 				B34B69FE17533FC200F9D040 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B34B6A0B17533FD100F9D040 /* ASSwitch */ = {
+			isa = PBXGroup;
+			children = (
+				B34B6A0D17533FE800F9D040 /* Classes */,
+				B34B6A0C17533FDB00F9D040 /* UI Elements */,
+			);
+			name = ASSwitch;
+			sourceTree = "<group>";
+		};
+		B34B6A0C17533FDB00F9D040 /* UI Elements */ = {
+			isa = PBXGroup;
+			children = (
+				B34B6A1217533FFC00F9D040 /* ASSwitchFrame.png */,
+				B34B6A1317533FFC00F9D040 /* ASSwitchFrame@2x.png */,
+				B34B6A1417533FFC00F9D040 /* ASSwitchToggle.png */,
+				B34B6A1517533FFC00F9D040 /* ASSwitchToggle@2x.png */,
+				B34B6A1617533FFC00F9D040 /* ASSwitchToggleSelected.png */,
+				B34B6A1717533FFC00F9D040 /* ASSwitchToggleSelected@2x.png */,
+			);
+			name = "UI Elements";
+			sourceTree = "<group>";
+		};
+		B34B6A0D17533FE800F9D040 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B34B6A0E17533FF400F9D040 /* ASSwitch.h */,
+				B34B6A0F17533FF400F9D040 /* ASSwitch.m */,
+				B34B6A1017533FF400F9D040 /* ASSwitchDefinitions.h */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +212,12 @@
 				B34B69FD17533FC200F9D040 /* Default@2x.png in Resources */,
 				B34B69FF17533FC200F9D040 /* Default-568h@2x.png in Resources */,
 				B34B6A0517533FC200F9D040 /* ViewController.xib in Resources */,
+				B34B6A1817533FFC00F9D040 /* ASSwitchFrame.png in Resources */,
+				B34B6A1917533FFC00F9D040 /* ASSwitchFrame@2x.png in Resources */,
+				B34B6A1A17533FFC00F9D040 /* ASSwitchToggle.png in Resources */,
+				B34B6A1B17533FFC00F9D040 /* ASSwitchToggle@2x.png in Resources */,
+				B34B6A1C17533FFC00F9D040 /* ASSwitchToggleSelected.png in Resources */,
+				B34B6A1D17533FFC00F9D040 /* ASSwitchToggleSelected@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +231,7 @@
 				B34B69F517533FC100F9D040 /* main.m in Sources */,
 				B34B69F917533FC100F9D040 /* AppDelegate.m in Sources */,
 				B34B6A0217533FC200F9D040 /* ViewController.m in Sources */,
+				B34B6A1117533FF400F9D040 /* ASSwitch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
