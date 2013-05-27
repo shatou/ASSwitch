@@ -136,9 +136,9 @@
 		B34B6A1F1753439C00F9D040 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				B34B6A221753439C00F9D040 /* ASSwitchDefinitions.h */,
 				B34B6A201753439C00F9D040 /* ASSwitch.h */,
 				B34B6A211753439C00F9D040 /* ASSwitch.m */,
-				B34B6A221753439C00F9D040 /* ASSwitchDefinitions.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -319,6 +319,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ASSwitchExample/ASSwitchExample-Prefix.pch";
 				INFOPLIST_FILE = "ASSwitchExample/ASSwitchExample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -330,6 +331,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ASSwitchExample/ASSwitchExample-Prefix.pch";
 				INFOPLIST_FILE = "ASSwitchExample/ASSwitchExample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -354,6 +356,7 @@
 				B34B6A0A17533FC200F9D040 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

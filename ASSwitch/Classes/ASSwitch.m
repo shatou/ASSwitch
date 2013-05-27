@@ -14,17 +14,12 @@
 @property (nonatomic, retain) UILabel *onTextLabel;
 @property (nonatomic, retain) UILabel *offTextLabel;
 @property (nonatomic, retain) UIImageView *toggleImageView;
+@property (nonatomic, retain) UIImageView *frameImageView;
 @property (nonatomic) BOOL draggingToggle;
 
 @end
 
 @implementation ASSwitch
-
-@synthesize onState;
-@synthesize onTextLabel;
-@synthesize offTextLabel;
-@synthesize toggleImageView;
-@synthesize draggingToggle;
 
 #pragma mark - Initialization
 
@@ -40,7 +35,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        [self fixSelfFrame];
+        [self fixSelfFrameWithFrameImage:[UIImage imageNamed:S_IMAGE_FRAME]];
         [self placeUIElements];
         [self addSingleTapRecognizer];
         self.clipsToBounds = YES;
@@ -53,9 +48,8 @@
     
 }
 
-- (void) fixSelfFrame {
+- (void) fixSelfFrameWithFrameImage:(UIImage *)frameImage {
     
-    UIImage *frameImage = [UIImage imageNamed:S_IMAGE_FRAME];
     CGRect frame = self.frame;
     frame.size.width = frameImage.size.width;
     frame.size.height = frameImage.size.height;
@@ -65,24 +59,24 @@
 
 - (void) placeUIElements {
     
-    [self placeToggle];
+    [self placeToggleWithToggleImage:[UIImage imageNamed:S_IMAGE_TOGGLE]];
     [self placeOnTextLabel];
     [self placeOffTextLabel];
-    [self placeBackgroundFrame];
+    [self placeBackgroundFrameWithFrameImage:[UIImage imageNamed:S_IMAGE_FRAME]];
     
 }
 
-- (void) placeBackgroundFrame {
+- (void) placeBackgroundFrameWithFrameImage:(UIImage *)frameImage {
     
-    UIImage *frameImage = [UIImage imageNamed:S_IMAGE_FRAME];
-    UIImageView *frameImageView = [[UIImageView alloc] initWithFrame:CGRectMake(C_ORIGIN_ZERO,
-                                                                                 C_ORIGIN_ZERO,
-                                                                                 frameImage.size.width,
-                                                                                 frameImage.size.height)];
-    frameImageView.image = frameImage;
+    if (self.frameImageView == nil) {
+        self.frameImageView = [[UIImageView alloc] initWithFrame:CGRectMake(C_ORIGIN_ZERO,
+                                                                            C_ORIGIN_ZERO,
+                                                                            frameImage.size.width,
+                                                                            frameImage.size.height)];
+        [self addSubview:self.frameImageView];
+    }
     
-    
-    [self addSubview:frameImageView];
+    self.frameImageView.image = frameImage;
     
 }
 
@@ -113,15 +107,17 @@
     
 }
 
-- (void) placeToggle {
+- (void) placeToggleWithToggleImage:(UIImage *)toggleImage {
     
-    UIImage *toggleImage = [UIImage imageNamed:S_IMAGE_TOGGLE];
-    self.toggleImageView = [[UIImageView alloc] initWithFrame:CGRectMake(-C_TOGGLE_SECTION_WIDTH,
-                                                                          C_ORIGIN_ZERO,
-                                                                          toggleImage.size.width,
-                                                                          toggleImage.size.height)];
+    if (self.toggleImageView == nil) {
+        self.toggleImageView = [[UIImageView alloc] initWithFrame:CGRectMake(-C_TOGGLE_SECTION_WIDTH,
+                                                                             C_ORIGIN_ZERO,
+                                                                             toggleImage.size.width,
+                                                                             toggleImage.size.height)];
+        [self addSubview:self.toggleImageView];
+    }
+    
     self.toggleImageView.image = toggleImage;
-    [self addSubview:self.toggleImageView];
     
 }
 
@@ -161,16 +157,25 @@
     
 }
 
+#pragma mark - On State
+
+- (void) setOnState:(BOOL)onState {
+    
+    [self setOn:onState animated:YES];
+    
+}
+
+
 #pragma mark - User Methods
 
 - (void) setOn:(BOOL)on
       animated:(BOOL)animated {
     
-    if (onState && on) {
+    if (self.onState && on) {
         return;
     }
     
-    if (!onState && !on) {
+    if (!self.onState && !on) {
         return;
     }
     
@@ -188,7 +193,7 @@
     
     CGRect movableToggleFrame = self.toggleImageView.frame;
     
-    if (!onState) {
+    if (!self.onState) {
         movableToggleFrame.origin.x = 0;
     } else {
         movableToggleFrame.origin.x = - C_TOGGLE_SECTION_WIDTH;
@@ -207,7 +212,7 @@
     
     CGRect movableToggleFrame = self.toggleImageView.frame;
     
-    if (!onState) {
+    if (!self.onState) {
         movableToggleFrame.origin.x = 0;
         self.onState = YES;
     } else {
@@ -232,13 +237,41 @@
     
 }
 
+- (void) setOnLabelTextColor:(UIColor *)onLabelTextColor {
+    
+    self.onTextLabel.textColor = onLabelTextColor ? onLabelTextColor:[UIColor whiteColor];
+    
+}
+
+- (void) setOffLabelTextColor:(UIColor *)offLabelTextColor {
+    
+    self.offTextLabel.textColor = offLabelTextColor ? offLabelTextColor:[UIColor whiteColor];
+    
+}
+
+- (void) setSwitchFrameImage:(UIImage *)switchFrameImage {
+    
+    if (switchFrameImage == nil) return;
+    
+    [self placeBackgroundFrameWithFrameImage:switchFrameImage];
+    
+}
+
+- (void) setSwitchToggleImage:(UIImage *)switchToggleImage {
+    
+    if (switchToggleImage == nil) return;
+    
+    [self placeToggleWithToggleImage:switchToggleImage];
+    
+}
+
 #pragma mark - Touch Events
 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
     [super touchesBegan:touches withEvent:event];
     
-    draggingToggle = NO;
+    self.draggingToggle = NO;
     
     self.toggleImageView.image = [UIImage imageNamed:S_IMAGE_TOGGLE_SELECTED];
     
@@ -248,7 +281,7 @@
     
     [super touchesMoved:touches withEvent:event];
     
-    draggingToggle = YES;
+    self.draggingToggle = YES;
     
     UITouch *aTouch = [touches anyObject];
     CGPoint currentLocation = [aTouch locationInView:self];
@@ -284,7 +317,7 @@
     
     CGRect movableToggleFrame = self.toggleImageView.frame;
     
-    if (!onState) {
+    if (!self.onState) {
         
         if (movableToggleFrame.origin.x >= -C_TOGGLE_SECTION_WIDTH / 2) {
             [self setStatus:YES];
@@ -327,13 +360,13 @@
 
 - (void) switchState:(UITapGestureRecognizer *)recognizer {
     
-    if (draggingToggle) {
+    if (self.draggingToggle) {
         return;
     }
     
     self.toggleImageView.image = [UIImage imageNamed:S_IMAGE_TOGGLE];
     [self changeStateWithAnimation];
-    [self setStatus:!onState];
+    [self setStatus:!self.onState];
     
 }
 
@@ -341,7 +374,7 @@
 
 - (void) setStatus:(BOOL)status {
     
-    onState = status;
+    self.onState = status;
     [self sendActionsForControlEvents:UIControlEventValueChanged];
     
 }
