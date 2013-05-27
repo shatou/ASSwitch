@@ -9,9 +9,9 @@
 ####- Initialization
 You simply create the switch as following:
 
-  ASSwitch *aSwitch = [[ASSwitch alloc] initWithFrame:CGRectMake(115, 140, 0, 0)];
+	ASSwitch *aSwitch = [[ASSwitch alloc] initWithFrame:CGRectMake(115, 140, 0, 0)];
 
-You don't need to specify a width or height for the switch, it will adopt itself to the switch frame image
+You don't need to specify a width or height for the switch, it will adopt itself to the switch frame image (even if you didn't provide one).
 
 #### - Switch Images
 Two images shall be supplied for each switch. The switch frame image (the one with dark gray stroke in the example project). And the switch toggle image (the one with on-off image combined in one image). You must divide the latter into three equal sections - one for on image, one for the toggle head and one for off image. If you didn't provide any images, the default ones will be used (And I believe they look good too :).
